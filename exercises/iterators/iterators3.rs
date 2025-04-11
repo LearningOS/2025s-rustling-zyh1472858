@@ -26,7 +26,11 @@ pub struct NotDivisibleError {
 // Calculate `a` divided by `b` if `a` is evenly divisible by `b`.
 // Otherwise, return a suitable error.
 pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {
-    todo!();
+    match a%b {
+        0 => return Ok(a/b),
+        NaN=>return Err(DivisionError::DivideByZero),
+        _ => return Err(DivisionError::NotDivisible())
+    }
 }
 
 // Complete the function and return a value of the correct type so the test
